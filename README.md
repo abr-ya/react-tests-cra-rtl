@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## .env
+REACT_APP_SERVER=https://api-ice-cream.herokuapp.com
+
 ## Available Scripts
 
 In the project directory, you can run:
