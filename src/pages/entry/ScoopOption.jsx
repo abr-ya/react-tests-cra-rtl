@@ -6,10 +6,15 @@ import Row from 'react-bootstrap/Row';
 const SERVER = process.env.REACT_APP_SERVER;
 
 const ScoopOption = ({ name, imagePath, updateItemCount }) => {
-  const [isValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
   const handleChange = (event) => {
     const currentValue = event.target.value;
-    updateItemCount(name, currentValue);
+    const currentValueFloat = parseFloat(currentValue);
+    const valueIsValid = currentValueFloat >= 0
+      && currentValueFloat <= 10
+      && Math.floor(currentValueFloat) === currentValueFloat; // проверка, что число целое
+    setIsValid(valueIsValid);
+    if (valueIsValid) updateItemCount(name, currentValue);
   };
 
   return (
